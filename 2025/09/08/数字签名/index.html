@@ -35,7 +35,9 @@
   
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
   <div id="container">
@@ -86,24 +88,24 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h1 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h1><p>数字签名满足下面条件<br>认证性（Authenticity）：验证消息确实是由声称的发送者发送的，不是伪造的<br>完整性（Integrity）：验证消息在传输或存储过程中没有被篡改<br>不可否认性（Non-repudiation）：发送者之后不能否认他发送过这条消息（因为签名只有他本人能生成）</p>
-<p>总体来说数字签名是公钥密码的逆用，使用私钥签名，使用公钥验签<br>数字签名方案的三个部分：<br>（1）密钥生成：生成签名者所需的公私钥对；<br>（2）签名过程：对于m，利用私钥进行签名s &#x3D; S(m)， 输出(m, s)；<br>（3）验证过程：验证者使用公钥验证签名，如果验证方程成立，则承认该签名；否则拒绝。</p>
-<h1 id="RSA-签名"><a href="#RSA-签名" class="headerlink" title="RSA 签名"></a>RSA 签名</h1><h2 id="签密方案"><a href="#签密方案" class="headerlink" title="签密方案"></a>签密方案</h2><p>A向B传递加密的消息-签名对<br>$C &#x3D; (M^{d_A} mod n_A)^{e_B} mod n_B$<br>$M’ &#x3D; M^{e_B} mod n_B$<br>B解密和验签<br>$C^{d_B} &#x3D; M^{d_A} &#x3D; S_A$<br>$(M’)^{d_B} mod n_B &#x3D;M$<br>$S_A^{e_A} &#x3D; (M^{d_A})^{e_A} &#x3D; M mod n_A$</p>
-<h2 id="简化计算的性质"><a href="#简化计算的性质" class="headerlink" title="简化计算的性质"></a>简化计算的性质</h2><p>如果 $ t &#x3D; LCM[p - 1, q - 1] $ （最小公倍数），并且 $ k \equiv r \mod t $ 且 $ k &gt; r $，那么 $ a^k \equiv a^r \mod pq $<br>因为 $ a^k \equiv a^r \mod p $ 且 $a^k \equiv a^r \mod q$<br>根据中国剩余定理，我们可以得出$a^k \equiv a^r \mod pq$</p>
+<p>总体来说数字签名是公钥密码的逆用，使用私钥签名，使用公钥验签<br>数字签名方案的三个部分：<br>（1）密钥生成：生成签名者所需的公私钥对；<br>（2）签名过程：对于m，利用私钥进行签名s = S(m)， 输出(m, s)；<br>（3）验证过程：验证者使用公钥验证签名，如果验证方程成立，则承认该签名；否则拒绝。</p>
+<h1 id="RSA-签名"><a href="#RSA-签名" class="headerlink" title="RSA 签名"></a>RSA 签名</h1><h2 id="签密方案"><a href="#签密方案" class="headerlink" title="签密方案"></a>签密方案</h2><p>A向B传递加密的消息-签名对<br>$C = (M^{d_A} mod n_A)^{e_B} mod n_B$<br>$M’ = M^{e_B} mod n_B$<br>B解密和验签<br>$C^{d_B} = M^{d_A} = S_A$<br>$(M’)^{d_B} mod n_B =M$<br>$S_A^{e_A} = (M^{d_A})^{e_A} = M mod n_A$</p>
+<h2 id="简化计算的性质"><a href="#简化计算的性质" class="headerlink" title="简化计算的性质"></a>简化计算的性质</h2><p>如果 $ t = LCM[p - 1, q - 1] $ （最小公倍数），并且 $ k \equiv r \mod t $ 且 $ k &gt; r $，那么 $ a^k \equiv a^r \mod pq $<br>因为 $ a^k \equiv a^r \mod p $ 且 $a^k \equiv a^r \mod q$<br>根据中国剩余定理，我们可以得出$a^k \equiv a^r \mod pq$</p>
 <p>消息过大时对消息先用哈希函数处理</p>
-<h1 id="ELGamal数字签名"><a href="#ELGamal数字签名" class="headerlink" title="ELGamal数字签名"></a>ELGamal数字签名</h1><h2 id="密钥生成"><a href="#密钥生成" class="headerlink" title="密钥生成"></a>密钥生成</h2><p>大素数$P$，乘法群$Z_p^*$的生成元$g$<br>随机数$x$,$x&lt;p-2$<br>$y &#x3D; g^xmodp$<br>公钥为$(p,g,y)$私钥为$x$</p>
-<h2 id="签名过程"><a href="#签名过程" class="headerlink" title="签名过程"></a>签名过程</h2><p>$gcd(k,p-1)&#x3D; 1,k\in Z_{p-1}$<br>$s(m) &#x3D; (s_1,s_2) \in Z_p^* \times Z_{p-1}$<br>$s_1 &#x3D; g^kmod p$<br>$s_2 &#x3D; (m-xs_1)k^{-1}mod(p-1)$</p>
-<h2 id="验证过程"><a href="#验证过程" class="headerlink" title="验证过程"></a>验证过程</h2><p>$y^{s_1}s_1^{s_2} &#x3D; g^m modp$<br>上式成立时则签名为有效签名</p>
-<h1 id="Schnorr签名方案"><a href="#Schnorr签名方案" class="headerlink" title="Schnorr签名方案"></a>Schnorr签名方案</h1><h2 id="密钥生成-1"><a href="#密钥生成-1" class="headerlink" title="密钥生成"></a>密钥生成</h2><p>选择一个大素数 $p$ 和素数 $q$ ,$q|(p-1)$<br>选择阶为q子群生成元 $g$<br>$g &#x3D; a^{(p-1)&#x2F;q}modp$若$g&#x3D;1$则重试<br>私钥：随机选择一个整数 $x (1 &lt; x &lt; q)$<br>公钥：计算 $y &#x3D; g^x mod p,(p,q,g,y)$</p>
-<h2 id="签名生成"><a href="#签名生成" class="headerlink" title="签名生成"></a>签名生成</h2><p>选择一个随机数 $k (1 &lt; k &lt; q)$<br>计算 $r &#x3D; g^k mod p$<br>计算 $e &#x3D; H(r || m)$，其中 $H$ 是一个哈希函数，$||$ 表示连接。$e$ 是一个挑战值。<br>计算 $S &#x3D; k + x * e mod q$<br>签名是 $(e, S)$</p>
-<h2 id="签名验证"><a href="#签名验证" class="headerlink" title="签名验证"></a>签名验证</h2><p>获取公钥 $y$、消息 $m$ 和签名 $(e, S)$<br>计算 $u &#x3D; g^S * y^{-e} mod p$<br>计算 $e’ &#x3D; H(u || m)$<br>如果 $e &#x3D;&#x3D; e’$，则验证通过，签名有效；否则无效。</p>
-<h1 id="数字签名标准-DSS"><a href="#数字签名标准-DSS" class="headerlink" title="数字签名标准 DSS"></a>数字签名标准 DSS</h1><h2 id="密钥生成-2"><a href="#密钥生成-2" class="headerlink" title="密钥生成"></a>密钥生成</h2><p>选择公共参数 $p, q, g$<br>用户选择私钥 $x$（一个小于 $q$ 的随机数）。<br>计算公钥 $y &#x3D; g^x mod p$</p>
-<h2 id="签名生成-1"><a href="#签名生成-1" class="headerlink" title="签名生成"></a>签名生成</h2><p>选择一个随机数 $k$<br>计算消息的哈希值 $H(m)$<br>计算 $r ( (g^k mod p) mod q )$。如果 $r&#x3D;0$，重新选择 $k$。<br>计算 $s ( k^(-1) * (H(m) + x*r) ) mod q$。如果 $s&#x3D;0$，重新选择 $k$。<br>签名是 $(r, s)$。</p>
-<h2 id="签名验证-1"><a href="#签名验证-1" class="headerlink" title="签名验证"></a>签名验证</h2><p>获取公钥 $y$、消息 $m$ 和签名 $(r, s)$。<br>检查 $r$ 和 $s$ 是否在 $1$ 到 $q-1$ 之间。如果不是，签名无效。<br>计算消息的哈希值 $H(m)$。<br>计算 $w s^(-1) mod q$<br>计算 $u1 (H(m) * w) mod q$<br>计算 $u2 (r * w) mod q$<br>计算 $v ( (g^u1 * y^u2) mod p ) mod q$<br>如果 $v &#x3D; r$，则签名有效；否则无效。</p>
+<h1 id="ELGamal数字签名"><a href="#ELGamal数字签名" class="headerlink" title="ELGamal数字签名"></a>ELGamal数字签名</h1><h2 id="密钥生成"><a href="#密钥生成" class="headerlink" title="密钥生成"></a>密钥生成</h2><p>大素数$P$，乘法群$Z_p^*$的生成元$g$<br>随机数$x$,$x&lt;p-2$<br>$y = g^xmodp$<br>公钥为$(p,g,y)$私钥为$x$</p>
+<h2 id="签名过程"><a href="#签名过程" class="headerlink" title="签名过程"></a>签名过程</h2><p>$gcd(k,p-1)= 1,k\in Z<em>{p-1}$<br>$s(m) = (s_1,s_2) \in Z_p^* \times Z</em>{p-1}$<br>$s_1 = g^kmod p$<br>$s_2 = (m-xs_1)k^{-1}mod(p-1)$</p>
+<h2 id="验证过程"><a href="#验证过程" class="headerlink" title="验证过程"></a>验证过程</h2><p>$y^{s_1}s_1^{s_2} = g^m modp$<br>上式成立时则签名为有效签名</p>
+<h1 id="Schnorr签名方案"><a href="#Schnorr签名方案" class="headerlink" title="Schnorr签名方案"></a>Schnorr签名方案</h1><h2 id="密钥生成-1"><a href="#密钥生成-1" class="headerlink" title="密钥生成"></a>密钥生成</h2><p>选择一个大素数 $p$ 和素数 $q$ ,$q|(p-1)$<br>选择阶为q子群生成元 $g$<br>$g = a^{(p-1)/q}modp$若$g=1$则重试<br>私钥：随机选择一个整数 $x (1 &lt; x &lt; q)$<br>公钥：计算 $y = g^x mod p,(p,q,g,y)$</p>
+<h2 id="签名生成"><a href="#签名生成" class="headerlink" title="签名生成"></a>签名生成</h2><p>选择一个随机数 $k (1 &lt; k &lt; q)$<br>计算 $r = g^k mod p$<br>计算 $e = H(r || m)$，其中 $H$ 是一个哈希函数，$||$ 表示连接。$e$ 是一个挑战值。<br>计算 $S = k + x * e mod q$<br>签名是 $(e, S)$</p>
+<h2 id="签名验证"><a href="#签名验证" class="headerlink" title="签名验证"></a>签名验证</h2><p>获取公钥 $y$、消息 $m$ 和签名 $(e, S)$<br>计算 $u = g^S * y^{-e} mod p$<br>计算 $e’ = H(u || m)$<br>如果 $e == e’$，则验证通过，签名有效；否则无效。</p>
+<h1 id="数字签名标准-DSS"><a href="#数字签名标准-DSS" class="headerlink" title="数字签名标准 DSS"></a>数字签名标准 DSS</h1><h2 id="密钥生成-2"><a href="#密钥生成-2" class="headerlink" title="密钥生成"></a>密钥生成</h2><p>选择公共参数 $p, q, g$<br>用户选择私钥 $x$（一个小于 $q$ 的随机数）。<br>计算公钥 $y = g^x mod p$</p>
+<h2 id="签名生成-1"><a href="#签名生成-1" class="headerlink" title="签名生成"></a>签名生成</h2><p>选择一个随机数 $k$<br>计算消息的哈希值 $H(m)$<br>计算 $r ( (g^k mod p) mod q )$。如果 $r=0$，重新选择 $k$。<br>计算 $s ( k^(-1) <em> (H(m) + x</em>r) ) mod q$。如果 $s=0$，重新选择 $k$。<br>签名是 $(r, s)$。</p>
+<h2 id="签名验证-1"><a href="#签名验证-1" class="headerlink" title="签名验证"></a>签名验证</h2><p>获取公钥 $y$、消息 $m$ 和签名 $(r, s)$。<br>检查 $r$ 和 $s$ 是否在 $1$ 到 $q-1$ 之间。如果不是，签名无效。<br>计算消息的哈希值 $H(m)$。<br>计算 $w s^(-1) mod q$<br>计算 $u1 (H(m) <em> w) mod q$<br>计算 $u2 (r </em> w) mod q$<br>计算 $v ( (g^u1 * y^u2) mod p ) mod q$<br>如果 $v = r$，则签名有效；否则无效。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/09/08/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D/" data-id="cmfajc26s0002hkf04yia7g2l" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/09/08/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D/" data-id="cmfajurrm00055of0820h3g2n" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
