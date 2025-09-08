@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="分组密码概述扩散与混淆克服统计分析，采用扩散和混淆两基本方式扩散：就是使明文的每一位影响密文中的许多位，这样可以隐蔽明文的统计特性。混淆：密文的每一位受密钥尽可能多位的影响。使密文和密钥关系复杂，从而统计分析更加困难。换位变换(置换&#x2F;permutation)可以实现有效的扩散。代替变换(substitution)可以达到比较好的混淆  P置换  123456789101112131415">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/09/08/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="分组密码概述扩散与混淆克服统计分析，采用扩散和混淆两基本方式扩散：就是使明文的每一位影响密文中的许多位，这样可以隐蔽明文的统计特性。混淆：密文的每一位受密钥尽可能多位的影响。使密文和密钥关系复杂，从而统计分析更加困难。换位变换(置换&#x2F;permutation)可以实现有效的扩散。代替变换(substitution)可以达到比较好的混淆  P置换  123456789101112131415">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img2024.cnblogs.com/blog/3567579/202506/3567579-20250622105112517-1819026246.png">
+<meta property="og:image" content="https://img2024.cnblogs.com/blog/3567579/202506/3567579-20250622105145244-700928516.png">
+<meta property="article:published_time" content="2025-09-08T02:59:17.823Z">
+<meta property="article:modified_time" content="2025-09-08T02:59:52.056Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2024.cnblogs.com/blog/3567579/202506/3567579-20250622105112517-1819026246.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-分组密码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/08/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/" class="article-date">
+  <time class="dt-published" datetime="2025-09-08T02:59:17.823Z" itemprop="datePublished">2025-09-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="分组密码概述"><a href="#分组密码概述" class="headerlink" title="分组密码概述"></a>分组密码概述</h1><h2 id="扩散与混淆"><a href="#扩散与混淆" class="headerlink" title="扩散与混淆"></a>扩散与混淆</h2><p>克服统计分析，采用扩散和混淆两基本方式<br>扩散：就是使明文的每一位影响密文中的许多位，<br>这样可以隐蔽明文的统计特性。<br>混淆：密文的每一位受密钥尽可能多位的影响。<br>使密文和密钥关系复杂，从而统计分析更加困难。<br>换位变换(置换&#x2F;permutation)可以实现有效的扩散。<br>代替变换(substitution)可以达到比较好的混淆</p>
+<details>
+<summary>P置换</summary>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">permutation</span>(<span class="params">data, permutation_table</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    执行P置换</span></span><br><span class="line"><span class="string">    param data: 输入数据，列表或元组</span></span><br><span class="line"><span class="string">    param permutation_table: 置换表</span></span><br><span class="line"><span class="string">    return: 置换后的数据</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> [data[i] <span class="keyword">for</span> i <span class="keyword">in</span> permutation_table]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">inverse_permutation</span>(<span class="params">permutation_table</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算逆P置换表</span></span><br><span class="line"><span class="string">    param permutation_table: 原始置换表</span></span><br><span class="line"><span class="string">    return: 逆置换表</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    inverse_table = [<span class="number">0</span>] * <span class="built_in">len</span>(permutation_table)</span><br><span class="line">    <span class="keyword">for</span> i, pos <span class="keyword">in</span> <span class="built_in">enumerate</span>(permutation_table):</span><br><span class="line">        inverse_table[pos] = i</span><br><span class="line">    <span class="keyword">return</span> inverse_table</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</details>
+
+<h2 id="分组密码的结构"><a href="#分组密码的结构" class="headerlink" title="分组密码的结构"></a>分组密码的结构</h2><p>Feistel结构<br>每轮处理一半明文，加解密算法相同，代表为DES<br>SPN结构<br>每轮处理整个明文分组，加解密算法不同，代表为AES</p>
+<h2 id="分组密码的优劣"><a href="#分组密码的优劣" class="headerlink" title="分组密码的优劣"></a>分组密码的优劣</h2><p>分组密码： 密钥生成简单，同时处理一组明文段，<br>加密过程复杂， 密钥长度固定。<br>序列密码： 产生（伪）随机的密钥流，每次处理一个明文字母。 加密过程简单，需要明文与密钥同步。<br>分组密码适用性更广，易于标准化；<br>序列密码速度更快，可实时通信</p>
+<h1 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>明文分组： 64 bit<br>密文分组： 64 bit<br>密钥： 64 bit，其中8bit为校验位，实际 56 bit<br>轮数： 16 轮<br>加密函数： 8个 6-4 S盒；P置换。<br>整体结构： Feistel<br>关于Feistel结构<br>参考小规模DES实验<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/luminescence/p/18904923">https://www.cnblogs.com/luminescence/p/18904923</a></p>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/luminescence/p/18866999">https://www.cnblogs.com/luminescence/p/18866999</a></p>
+<h2 id="DES的特点"><a href="#DES的特点" class="headerlink" title="DES的特点"></a>DES的特点</h2><p>除密钥顺序之外，加密和解密步骤完全相同；<br>诟病：密钥太短，迭代次数可能太少，<br> S盒可能存在不安全隐患。</p>
+<h3 id="攻击方法"><a href="#攻击方法" class="headerlink" title="攻击方法"></a>攻击方法</h3><p>差分分析：一种选择明文攻击，通过分析明文对的差值，对密文对的差值的影响来恢复某些密钥比特。<br>穷举攻击：人们利用网络并行计算可以在20多小时，破译56位的DES。DES已变得不安全了。<br>线性分析：一种已知明文攻击，它试图建立起明文、密文和密钥的一组近似线性方程</p>
+<h2 id="多重DES"><a href="#多重DES" class="headerlink" title="多重DES"></a>多重DES</h2><p>为了提高安全性，防止穷举攻击，DES还有多重形式。</p>
+<h3 id="双重DES"><a href="#双重DES" class="headerlink" title="双重DES"></a>双重DES</h3><p>$c &#x3D; DES_{k_2}(DES_{k_1}(m))$<br>$m &#x3D; DES^{-1}<em>{k_1}(DES^{-1}</em>{k_2}(c))$<br>中间相遇攻击<br>$c&#x3D;c &#x3D; DES_{k_2}(DES_{k_1}(m))$<br>$DES^{-1}<em>{k_2}(c)&#x3D;DES</em>{k_1}(m)$<br>总计算量 $2*2^{56}$</p>
+<h3 id="三重DES"><a href="#三重DES" class="headerlink" title="三重DES"></a>三重DES</h3><p>$c &#x3D; DES_{k_3}(DES_{k_2}^{-1}(DES_{k_1}(m)))$<br>$m &#x3D; DES^{-1}<em>{k_1}(DES</em>{k_2}(DES^{-1}_{k_3}(c)))$<br>中间一层用解密形式是为了可以利用三重DES对单重DES加密的密文进行解密</p>
+<h1 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h1><h2 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h2><p>明文分组： 128 bit<br>密文分组： 128 bit<br>密钥： 128、192、256 bit<br>轮数： 10、12、14 轮（圈）<br>加密函数： 8-8的S盒、P（行移位、列混合）<br>密钥生成： 扩展、递归<br>总体结构： SP结构</p>
+<p>AES是面向字节的算法：字节为最小单位进行处理。<br>输入明文分组：128bit&#x3D;16×8bit＝16个字节，<br>排成 4×4 的字节数组，称为状态矩阵（State Matrix）<br>轮函数就是对这个数组进行变换</p>
+<h2 id="AES中的运算"><a href="#AES中的运算" class="headerlink" title="AES中的运算"></a>AES中的运算</h2><p>AES是面向字节的算法，最小单位是字节(Byte)。<br>一个字节可用二位十六进制数表示，前加0x表示十六进制</p>
+<h3 id="字节运算"><a href="#字节运算" class="headerlink" title="字节运算"></a>字节运算</h3><p>一个8比特字节，可以看作$GF(2^8)$域中一个元素<br>AES中用多项式表示<br>$b_7b_6b_5b_4b_3b_2b_1b_0$<br>$b_7x^7+b_6x^6+b_5x^5+b_4x^4+b_3x^3+b_2x^2+b_1x+b_0$<br>加法就是多项式对应项相加，系数模二加<br>减法，就是加上减法逆（就是本身）<br>乘法，要模一个8次既约多项式$m(x)$<br>$m(x)&#x3D;x^8+x^4+x^3+x+1$</p>
+<p>每一项多次乘x转化为重复使用xtime( )运算。<br>复杂运算化简为简单运算的迭代。<br>$𝐺𝐹(2^8)$上的$xtime( )$算法：<br>(1) 如果$b_7&#x3D;0$则xtime( )运算就是左移一位后补零；<br>(2) 如果$b_7&#x3D;1$,则xtime( )左移一位后补零再异或0x1b。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">xtime</span>(<span class="params">byte</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    实现GF(2⁸)上的xtime运算</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> byte &amp; <span class="number">0x80</span>:</span><br><span class="line">        <span class="keyword">return</span> ((byte &lt;&lt; <span class="number">1</span>) ^ <span class="number">0x1B</span>) &amp; <span class="number">0xFF</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> (byte &lt;&lt; <span class="number">1</span>) &amp; <span class="number">0xFF</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gf256_multiply</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    在GF(2⁸)上计算两个字节的乘法</span></span><br><span class="line"><span class="string">    xtime分解</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    result = <span class="number">0</span></span><br><span class="line">    temp = a</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>):</span><br><span class="line">        <span class="keyword">if</span> (b &gt;&gt; i) &amp; <span class="number">1</span>:</span><br><span class="line">            result ^= temp</span><br><span class="line">        temp = xtime(temp)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">parse_hex_input</span>(<span class="params">prompt</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        s = <span class="built_in">input</span>(prompt).strip().upper()</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) == <span class="number">1</span> <span class="keyword">and</span> s <span class="keyword">in</span> <span class="string">&quot;123456789ABCDEF&quot;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">int</span>(s, <span class="number">16</span>)</span><br><span class="line">        <span class="keyword">elif</span> <span class="built_in">len</span>(s) == <span class="number">2</span> <span class="keyword">and</span> <span class="built_in">all</span>(c <span class="keyword">in</span> <span class="string">&quot;0123456789ABCDEF&quot;</span> <span class="keyword">for</span> c <span class="keyword">in</span> s):</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">int</span>(s, <span class="number">16</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;输入无效&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">stdhex</span>(<span class="params">temp</span>):</span><br><span class="line">    tempstr = <span class="built_in">str</span>(<span class="built_in">hex</span>(temp))</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(tempstr) == <span class="number">3</span>:</span><br><span class="line">        tempstr = <span class="string">&#x27;0x0&#x27;</span> + tempstr[-<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> tempstr</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        a = parse_hex_input(<span class="string">&quot;第一个字节: &quot;</span>)</span><br><span class="line">        b = parse_hex_input(<span class="string">&quot;第二个字节: &quot;</span>)</span><br><span class="line">        result = gf256_multiply(a, b)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;结果: <span class="subst">&#123;stdhex(a)&#125;</span> * <span class="subst">&#123;stdhex(b)&#125;</span> = <span class="subst">&#123;stdhex(result)&#125;</span> (十进制: <span class="subst">&#123;result&#125;</span>)\n&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>除法，也就乘以除数的乘法逆。<br>一般地，可以利用多项式的扩展欧几里得算法求乘法逆。<br>求a(x)关于不可约多项式m(x)的乘法逆。<br>根据扩展欧几里得算法，a(x)和m(x)可表示为<br>$a(x)b(x) + c(c)m(x) &#x3D; 1$<br>$a(x)b(x) &#x3D; 1mod(m(x))$<br>$a(x)^{-1} &#x3D; b(x)mod(m(x))$</p>
+<p>S盒构造</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">A=[</span><br><span class="line">    [1 1 1 1 1 0 0 0]</span><br><span class="line">    [0 1 1 1 1 1 0 0]</span><br><span class="line">    [0 0 1 1 1 1 1 0]</span><br><span class="line">    [0 0 0 1 1 1 1 1]</span><br><span class="line">    [1 0 0 0 1 1 1 1]</span><br><span class="line">    [1 1 0 0 0 1 1 1]</span><br><span class="line">    [1 1 1 0 0 0 1 1]</span><br><span class="line">    [1 1 1 1 0 0 0 1]</span><br><span class="line">    ]</span><br><span class="line">C = (1, 1, 0, 0, 0, 1, 1, 0)</span><br></pre></td></tr></table></figure>
+<p>s &#x3D; A * b⁻¹ + c</p>
+<h3 id="字节替代例题"><a href="#字节替代例题" class="headerlink" title="字节替代例题"></a>字节替代例题</h3><p><img src="https://img2024.cnblogs.com/blog/3567579/202506/3567579-20250622105112517-1819026246.png" alt="image"><br><img src="https://img2024.cnblogs.com/blog/3567579/202506/3567579-20250622105145244-700928516.png" alt="image"></p>
+<h3 id="字运算"><a href="#字运算" class="headerlink" title="字运算"></a>字运算</h3><p>一个四字节的字可以看作$GF(2^32)&#x3D;GF((2^8)^4)$中的元素<br>$a_3a_2a_1a_0$<br>用多项式表示<br>$a_x^3+a_2x^2+a_1x+a_0$<br>加法为对应系数相加，逐位模二加<br>乘法为多项式相乘后，模一个四次多项式<br>$M(x) &#x3D; {01}x^4 + {01}$<br>$x^4 + 1&#x3D;(x^2+1)^2$</p>
+<p>$d(x)&#x3D;d_{3} x^{3}+d_{2} x^{2}+d_{1} x+d_0$<br>$&#x3D;c_{3} x^{3}+\left(c_{2}-c_{6}\right) x^{2}+\left(c_{1}-c_{5}\right) x+\left(c_{0}-c_{4}\right)$<br>$d_0&#x3D;a_0 \cdot b_0 \oplus a_3 \cdot b_1 \oplus a_2 \cdot b_2 \oplus a_1 \cdot b_3$<br>$d_1&#x3D;a_1 \cdot b_0 \oplus a_0 \cdot b_1 \oplus a_3 \cdot b_2 \oplus a_2 \cdot b_3$<br>$d_2&#x3D;a_2 \cdot b_0 \oplus a_1 \cdot b_1 \oplus a_0 \cdot b_2 \oplus a_3 \cdot b_3$<br>$d_3&#x3D;a_3 \cdot b_0 \oplus a_2 \cdot b_1 \oplus a_1 \cdot b_2 \oplus a_0 \cdot b_3$<br>$\begin{bmatrix}<br>    d_0 \<br>    d_1 \<br>    d_2 \<br>    d_3<br>\end{bmatrix}&#x3D;\begin{bmatrix}<br>    a_0 &amp; a_3 &amp; a_2 &amp; a_1 \<br>    a_1 &amp; a_0 &amp; a_3 &amp; a_2 \<br>    a_2 &amp; a_1 &amp; a_0 &amp; a_3 \<br>    a_3 &amp; a_2 &amp; a_1 &amp; a_0<br>\end{bmatrix}\begin{bmatrix}<br>    b_0 \<br>    b_1 \<br>    b_2 \<br>    b_3<br>\end{bmatrix}$  </p>
+<h3 id="AES的列混合"><a href="#AES的列混合" class="headerlink" title="AES的列混合"></a>AES的列混合</h3><p>$\begin{bmatrix}<br>    d_0 \<br>    d_1 \<br>    d_2 \<br>    d_3<br>\end{bmatrix}&#x3D;\begin{bmatrix}<br>    02 &amp; 03 &amp; 01 &amp; 01 \<br>    01 &amp; 02 &amp; 03 &amp; 01 \<br>    01 &amp; 01 &amp; 02 &amp; 03 \<br>    03 &amp; 01 &amp; 01 &amp; 02<br>\end{bmatrix}\begin{bmatrix}<br>    b_0 \<br>    b_1 \<br>    b_2 \<br>    b_3<br>\end{bmatrix}$<br>列混合前后，两个矩阵各列上所有元素和是对应相等的</p>
+<h2 id="AES的特点"><a href="#AES的特点" class="headerlink" title="AES的特点"></a>AES的特点</h2><p>结构简单，适应性强<br>加解密算法不同，解密使用加密的逆模块</p>
+<h1 id="分组密码的工作模式"><a href="#分组密码的工作模式" class="headerlink" title="分组密码的工作模式"></a>分组密码的工作模式</h1><h2 id="ECB"><a href="#ECB" class="headerlink" title="ECB"></a>ECB</h2><p>电码本模式 electronic codebook<br>直接分组，相同明文产生相同密文</p>
+<h2 id="CBC"><a href="#CBC" class="headerlink" title="CBC"></a>CBC</h2><p>密码分组链接模式 Cipher-Block Chaining<br>使用初始向量与分组1异或，加密后密文1与分组2异或，以此类推<br>缺点：存在错误扩散<br>若在信道上传送的第i组密文ci出现1bit错误，则在解密时，将引起第i组明文mi全错及第i+1组明文mi+1出现1bit错误；此外，第j(j&gt;i+1)组明文$m_j$将不再受此错误影响，系统会自动恢复正常</p>
+<h2 id="CFB"><a href="#CFB" class="headerlink" title="CFB"></a>CFB</h2><p>密码反馈模式 Cipher FeedBack<br>使用移位寄存器产生序列，经过分组密码加密后序列与明文分组异或，使用密文分组生成新序列<br>可以不按固定位数加密<br>假设明文分组为j位，首先用初始向量进行操作在移位寄存器得到64位，加密后序列1与明文1异或，得到密文1，丢弃后面$64-j$位并填入移位寄存器生成序列2，以此类推<br>该模式的特点：<br>存在有限的(其实是$[64&#x2F;j]+1$组)错误扩散：当传输的密文组$c_i$出现1bit错误时，解密的明文组$m_i$也有1bit错误，而且随后解密出来的$[64&#x2F;j]$组明文$m_{i+1},m_{i+2},……,m_{i+[64&#x2F;j]}$全错，直至此后原$c_i$的1bit错误刚好移出64级移位寄存器，系统可自动恢复正常。<br>CFB模式给出的是典型的自同步序列密码：只要接收方连续收到$[64&#x2F;j]$组正确的密文，收发双方的64级移位寄存器存储的数据就完全一样，从而双方可重新建立起同步。</p>
+<h2 id="OFB"><a href="#OFB" class="headerlink" title="OFB"></a>OFB</h2><p>输出反馈模式 Output FeedBack<br>与CFB类似，但下一个移位寄存器直接使用上一个序列的前j位生成新序列<br>明文分组直接和序列异或后输出密文分组</p>
+<h2 id="计数器模式"><a href="#计数器模式" class="headerlink" title="计数器模式"></a>计数器模式</h2><p>使用时间戳做生成序列，经过加密后与明文分组异或得到密文分组</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/08/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/" data-id="cmfajc26o0001hkf0g00d8x3n" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/09/08/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/09/08/%E5%BA%8F%E5%88%97%E5%AF%86%E7%A0%81%E5%AD%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/09/08/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/09/08/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/09/08/%E5%BA%8F%E5%88%97%E5%AF%86%E7%A0%81%E5%AD%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/09/08/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%9A%E4%BB%8E%E8%89%BA%E6%9C%AF%E5%88%B0%E7%A7%91%E5%AD%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/09/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

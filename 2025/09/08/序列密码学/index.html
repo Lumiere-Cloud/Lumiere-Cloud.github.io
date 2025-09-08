@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="序列密码概述仿照一次一密将明文编为比特串产生与明文长度相同的密钥流加密与解密均为密钥与比特流异或序列密码的主要任务：设计安全的伪随机密钥产生器 序列密码优缺点处理速度快，实时性好适用于军事、外交等保密系统适应性差，需要密钥同步 线性反馈移位寄存器一个$q$元域 $GF(q)$上的 $n$ 阶反馈移位寄存器：$n$ 个寄存器 + 一个反馈函数最左端寄存器为第1级寄存器，最右端为第n级寄存器反馈函数$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/09/08/%E5%BA%8F%E5%88%97%E5%AF%86%E7%A0%81%E5%AD%A6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="序列密码概述仿照一次一密将明文编为比特串产生与明文长度相同的密钥流加密与解密均为密钥与比特流异或序列密码的主要任务：设计安全的伪随机密钥产生器 序列密码优缺点处理速度快，实时性好适用于军事、外交等保密系统适应性差，需要密钥同步 线性反馈移位寄存器一个$q$元域 $GF(q)$上的 $n$ 阶反馈移位寄存器：$n$ 个寄存器 + 一个反馈函数最左端寄存器为第1级寄存器，最右端为第n级寄存器反馈函数$">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img2024.cnblogs.com/blog/3567579/202506/3567579-20250622104200257-1839927484.png">
+<meta property="og:image" content="https://img2024.cnblogs.com/blog/3567579/202506/3567579-20250620165305765-1773487624.png">
+<meta property="article:published_time" content="2025-09-08T02:57:44.375Z">
+<meta property="article:modified_time" content="2025-09-08T02:58:59.803Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2024.cnblogs.com/blog/3567579/202506/3567579-20250622104200257-1839927484.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-序列密码学" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/08/%E5%BA%8F%E5%88%97%E5%AF%86%E7%A0%81%E5%AD%A6/" class="article-date">
+  <time class="dt-published" datetime="2025-09-08T02:57:44.375Z" itemprop="datePublished">2025-09-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="序列密码概述"><a href="#序列密码概述" class="headerlink" title="序列密码概述"></a>序列密码概述</h1><p>仿照一次一密<br>将明文编为比特串<br>产生与明文长度相同的密钥流<br>加密与解密均为密钥与比特流异或<br>序列密码的主要任务：设计安全的伪随机密钥产生器</p>
+<p>序列密码优缺点<br>处理速度快，实时性好<br>适用于军事、外交等保密系统<br>适应性差，需要密钥同步</p>
+<h2 id="线性反馈移位寄存器"><a href="#线性反馈移位寄存器" class="headerlink" title="线性反馈移位寄存器"></a>线性反馈移位寄存器</h2><p>一个$q$元域 $GF(q)$上的 $n$ 阶反馈移位寄存器：<br>$n$ 个寄存器 + 一个反馈函数<br>最左端寄存器为第1级寄存器，最右端为第n级寄存器<br>反馈函数<br>$f(x_1,\dots ,x_n):GF(q)^n \to GF(q)$<br>具有周期状态</p>
+<h1 id="LFSR"><a href="#LFSR" class="headerlink" title="LFSR"></a>LFSR</h1><p>$f(x_1,\dots ,x_n) &#x3D; \sum c_nx_1 + \dots +c_1x_n$<br>$[c_1,c_2,\dots ,c_n]$称为结构常数<br>第$i$阶寄存器的结构常数为$n+1-i$</p>
+<h3 id="状态转换"><a href="#状态转换" class="headerlink" title="状态转换"></a>状态转换</h3><p>将此刻状态计算反馈值<br>状态左移移位，输出首位，后补反馈值，形成新状态<br>重复形成周期</p>
+<p>输出序列即为一个周期内状态的首位值的序列<br>$\tilde{a} &#x3D; a^{\infty } &#x3D; a_0a_1a_2\dots a_{n-1}a_n$</p>
+<p>结论：</p>
+<ol>
+<li>n-LFSR的结构由其结构常数唯一确定</li>
+<li>n-LFSR的结构常数与反馈函数互相唯一确定</li>
+<li>n-LFSR序列由其结构常数和初态唯一确定</li>
+<li>一个n-LFSR可以产生 个不同序列</li>
+<li>一个n-LFSR的序列的最大周期是</li>
+</ol>
+<h3 id="LFSR的有理表示"><a href="#LFSR的有理表示" class="headerlink" title="LFSR的有理表示"></a>LFSR的有理表示</h3><p>$f(x)&#x3D;1+c_1x+c_2x^2+\dots + c_{n-1}x^{n-1}+c_nx^n$<br>$f(x)$中常数项$c_0 &#x3D; 1$<br>称为线性移位寄存器的联接多项式或生成多项式</p>
+<p>$a(x)&#x3D;a_0+a_1x+a_2x^2\dots +a_{n-1}x^{n-1}+a_nx^n&#x3D;\sum a_nx^n$<br>$a(x)$称为序列的形式幂级数或生成函数</p>
+<p>$a(x) &#x3D; \frac{g(x)}{f(x)}$</p>
+<h3 id="g-x"><a href="#g-x" class="headerlink" title="g(x)"></a>g(x)</h3><p>n-LFSR有理表示中$g(x)$次数小于n<br>证明略<br>LFSR : g(x)的系数和结构常数与初态都有关系。<br>DSR ： g(x)的系数就是初态<br>求$g(x)$方法<br>根据初态，写出a(x)的前n项，次数最高为n-1 ，后<br>面的项不知道就用+⋯代替。a(x)与f(x)相乘后只取次数小<br>于等于n-1的项，即为g(x)。 这是因为：g(x)的最高次数为n-1，a(x)的n次以上的<br>项都会被抵消掉。</p>
+<h1 id="m序列"><a href="#m序列" class="headerlink" title="m序列"></a>m序列</h1><h3 id="m序列以及其性质"><a href="#m序列以及其性质" class="headerlink" title="m序列以及其性质"></a>m序列以及其性质</h3><p>m序列周期为$2^n-1$，没有全0状态<br>定理-2：周期为p的序列的（非最简）有理表示为：<br>$a(x) &#x3D; \frac{a_0+a_1x+a_2x^2\dots +a_{p-1}x^{p-1}}{1+x^p}$<br>如果$p &#x3D; 2^n − 1$，则$a(x)$就是n阶寄存器产生的m序列</p>
+<h3 id="本原多项式"><a href="#本原多项式" class="headerlink" title="本原多项式"></a>本原多项式</h3><p>定理-3：当$f (x)$为本原多项式，产生的序列 $a^~$为m序列<br>$gcd(a_0,a_1,\dots,a_n)&#x3D;1$则称$f(x)$是唯一分解整环$D$上本原多项式</p>
+<ul>
+<li>$f(x)$是既约的，即不能再分解因式</li>
+<li>$f(x)$可以整除$x^m+1,m&#x3D;2^n-1$</li>
+<li>$f(x)$不能整除$x^q+1,q&lt;m$</li>
+</ul>
+<h3 id="m序列的取样"><a href="#m序列的取样" class="headerlink" title="m序列的取样:"></a>m序列的取样:</h3><p>设 $\tilde{a} $ 是一个序列 $\tilde{a}&#x3D;{a_0,a_1,a_2,\dots ,a_n,\dots }$<br>$s$ 是一个正整数，令$\tilde{a^s}&#x3D; {a_0,a_s,a_{2s}\dots }$<br> 称 $\tilde{a^s}$为序列$\tilde{a}$ 的s采样<br>定理-4： 若 $\tilde{a}$ 是周期为p的m序列，$s &#x3D;s_1 mod p$<br>则$\tilde{a^s}&#x3D;\tilde{a^{s_1}}$</p>
+<h3 id="m序列的伪随机性"><a href="#m序列的伪随机性" class="headerlink" title="m序列的伪随机性"></a>m序列的伪随机性</h3><h4 id="三个特性"><a href="#三个特性" class="headerlink" title="三个特性"></a>三个特性</h4><p>分布特性<br>$s&gt;1,Pr((\xi _1,\xi <em>2,\dots,\xi <em>s)&#x3D;(b_1,b_2,\dots ,b_s)) &#x3D; 1&#x2F;2^s$<br>相关特性<br>$\lim \frac{1}{s}\sum (-1)^{\xi <em>i}(-1)^{\xi <em>{i+\tau}}$<br>$&#x3D; 1,\tau &#x3D; 0; &#x3D; 0,\tau &gt;0$<br>游程特性<br>$𝑃𝑟(𝜉</em>{i+1} &#x3D; 𝜉 <em>{i+2}&#x3D; ⋯𝜉</em>{i+k} &#x3D; 0, 𝜉</em>{i+k+1} &#x3D; 1|𝜉_i &#x3D; 1) &#x3D; 1&#x2F;2^{k+1}$<br>$𝑃𝑟(𝜉</em>{i+1} &#x3D; 𝜉 <em>{i+2}&#x3D; ⋯𝜉</em>{i+k} &#x3D; 1, 𝜉</em>{i+k+1} &#x3D; 0|𝜉_i &#x3D; 0) &#x3D; 1&#x2F;2^{k+1}$</p>
+<h4 id="m序列具有伪随机性"><a href="#m序列具有伪随机性" class="headerlink" title="m序列具有伪随机性"></a>m序列具有伪随机性</h4><p>定理-5：　设$a^{\infty}$是ｎ级二元ｍ序列，则<br>在一个周期中，0和1的出现次数分别为$2^{n-1}-1,2^{n-1}$<br>在一个周期中，游程总数为$2^{n-1}$<br> 对于任意的 $ 1\leq i &lt; n-2$<br> i 长的0游程和1游程都有$2^{n-i-2}$个<br> n-1长的0游程、n长的1游程各有一个；<br>证明方法：将游程数目转为状态数目</p>
+<h1 id="DSR对偶移位寄存器"><a href="#DSR对偶移位寄存器" class="headerlink" title="DSR对偶移位寄存器"></a>DSR对偶移位寄存器</h1><p>(DSR: Dual Shift Registers)<br>LFSR： 也称 Fibonacci LFSRs<br>DSR： 也称 Galois LFSRs</p>
+<h3 id="DSR的状态转换"><a href="#DSR的状态转换" class="headerlink" title="DSR的状态转换"></a>DSR的状态转换</h3><p>$x_1$是第1级寄存器中的值<br>新状态 $&#x3D; x_1$(结构常数) ⊕原状态左移一位后补零<br>若 $x_1 &#x3D; 0$，新状态 &#x3D; 原状态左移一位后补零；<br>若 $x_1 &#x3D; 1$，新状态 &#x3D;结构常数⊕原状态左移一位后补零。</p>
+<h3 id="DSR特殊点"><a href="#DSR特殊点" class="headerlink" title="DSR特殊点"></a>DSR特殊点</h3><p>(1) 三个量(寄存器、结构常数和初态)的标记顺序一致；<br>(2) 反馈只有 $x_1$的值；<br>(3) DSR便于编程实现（反馈不必计算多个量的求和）;<br>(4) DSR的状态不是每一位都输出； (5) DSR与LFSR相同的有理表示产生相同序列；<br>(6) DSR的有理表示分别对应序列、结构常数和初态。</p>
+<p>注意两者结构不同<br><img src="https://img2024.cnblogs.com/blog/3567579/202506/3567579-20250622104200257-1839927484.png" alt="image"></p>
+<h3 id="DSR有理表示"><a href="#DSR有理表示" class="headerlink" title="DSR有理表示"></a>DSR有理表示</h3><p>$a(x)&#x3D;a_0+a_1x+a_2x^2\dots +a_{n-1}x^{n-1}+a_nx^n&#x3D;\sum a_nx^n$<br>$f(x)&#x3D;1+c_1x+c_2x^2+\dots + c_{n-1}x^{n-1}+c_nx^n$<br>$g(x)&#x3D;g_0+g_1x+g_2x^2+\dots + g_{n-1}x^{n-1}$<br>$g(x)$表示初态</p>
+<h1 id="B-M算法"><a href="#B-M算法" class="headerlink" title="B-M算法"></a>B-M算法</h1><p>（Berlekamp–Massey）算法<br>迭代型求解序列生成多项式的算法<br>B-M 算法不需任何前提，求出产生序列段$a^N$的次数最低的联接多项式$𝑓_N(𝑥)$，即线性综合解<br>如果知道线性反馈移位寄存器的两个周期，2n长度的序列<br>就可以通过解方程组求得对应结构常数，得到生成多项式<br><img src="https://img2024.cnblogs.com/blog/3567579/202506/3567579-20250620165305765-1773487624.png" alt="image"></p>
+<p>（注意，下面代码由AI生成，不保证正确）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">def berlekamp_massey(sequence):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Berlekamp-Massey 算法实现（二元域 GF(2)）</span><br><span class="line">    输入: sequence - 二进制序列 (0/1 列表)</span><br><span class="line">    输出: 生成多项式 f_n (系数列表), L_n (LFSR 长度)</span><br><span class="line">    并打印每一步的计算过程</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    N = len(sequence)</span><br><span class="line">    # 初始化变量</span><br><span class="line">    n = 0</span><br><span class="line">    f = [1]  # 初始多项式 f0(x) = 1 (系数列表: [常数项, x^1 系数, x^2 系数, ...])</span><br><span class="line">    L = 0    # 当前 LFSR 长度</span><br><span class="line">    # 存储历史更新点 (n, f_n, L_n, d_n)</span><br><span class="line">    history = []</span><br><span class="line">    </span><br><span class="line">    print(&quot;n\ta_n\td_n\tf_n(x)\t\tL_n\tm\tupdate type&quot;)</span><br><span class="line">    print(&quot;-&quot; * 70)</span><br><span class="line">    </span><br><span class="line">    while n &lt; N:</span><br><span class="line">        # 计算差异 d_n = a_n + Σ c_i * a_&#123;n-i&#125; (GF(2) 加法即 XOR)</span><br><span class="line">        d = sequence[n]  # 从 a_n 开始</span><br><span class="line">        # 计算反馈项 (c1*a_&#123;n-1&#125; + c2*a_&#123;n-2&#125; + ...)</span><br><span class="line">        # 只考虑当前L长度内的系数</span><br><span class="line">        for i in range(1, min(L + 1, len(f))):</span><br><span class="line">            if n - i &gt;= 0:  # 确保不越界</span><br><span class="line">                # GF(2) 乘法: AND, 加法: XOR</span><br><span class="line">                d ^= f[i] &amp; sequence[n - i]</span><br><span class="line">        </span><br><span class="line">        # 准备输出信息</span><br><span class="line">        f_str = &quot;1&quot;  # 常数项总是1</span><br><span class="line">        # 添加其他项</span><br><span class="line">        terms = []</span><br><span class="line">        for i in range(1, len(f)):</span><br><span class="line">            if f[i] == 1:</span><br><span class="line">                terms.append(f&quot;x^&#123;i&#125;&quot; if i &gt; 1 else &quot;x&quot;)</span><br><span class="line">        if terms:</span><br><span class="line">            f_str += &quot; + &quot; + &quot; + &quot;.join(terms)</span><br><span class="line">        </span><br><span class="line">        m_val = &quot;&quot;</span><br><span class="line">        update_type = &quot;no update&quot;</span><br><span class="line">        </span><br><span class="line">        if d != 0:  # 差异非零，需要更新多项式</span><br><span class="line">            if not history:  # 首次非零差异（没有历史点）</span><br><span class="line">                # 构造新多项式: 1 + x^&#123;n+1&#125;</span><br><span class="line">                f_next = [1] + [0] * n + [1]</span><br><span class="line">                L_next = n + 1</span><br><span class="line">                # 存储当前状态作为历史更新点</span><br><span class="line">                history.append((n, f.copy(), L, d))</span><br><span class="line">                update_type = &quot;first update&quot;</span><br><span class="line">                m_val = &quot;&quot;</span><br><span class="line">            else:</span><br><span class="line">                # 获取最近的历史点</span><br><span class="line">                m, f_m, L_m, d_m = history[-1]</span><br><span class="line">                m_val = str(m)</span><br><span class="line">                </span><br><span class="line">                # 计算位移量</span><br><span class="line">                shift = n - m</span><br><span class="line">                # 构造位移多项式: x^&#123;shift&#125; * f_m(x)</span><br><span class="line">                f_shifted = [0] * shift + f_m</span><br><span class="line">                </span><br><span class="line">                # 扩展多项式到相同长度</span><br><span class="line">                max_len = max(len(f), len(f_shifted))</span><br><span class="line">                f_padded = f + [0] * (max_len - len(f))</span><br><span class="line">                fs_padded = f_shifted + [0] * (max_len - len(f_shifted))</span><br><span class="line">                </span><br><span class="line">                # 计算新多项式: f_&#123;n+1&#125;(x) = f_n(x) + x^&#123;n-m&#125; f_m(x)</span><br><span class="line">                f_next = [a ^ b for a, b in zip(f_padded, fs_padded)]</span><br><span class="line">                </span><br><span class="line">                # 更新长度: L_&#123;n+1&#125; = max(L_n, n+1 - L_n)</span><br><span class="line">                L_next = max(L, n + 1 - L)</span><br><span class="line">                </span><br><span class="line">                # 如果长度增加，保存为新的历史点</span><br><span class="line">                if L_next &gt; L:</span><br><span class="line">                    history.append((n, f.copy(), L, d))</span><br><span class="line">                update_type = f&quot;update (m=&#123;m&#125;)&quot;</span><br><span class="line">        else:</span><br><span class="line">            # 差异为零，不更新多项式</span><br><span class="line">            f_next = f.copy()</span><br><span class="line">            L_next = L</span><br><span class="line">            update_type = &quot;d=0&quot;</span><br><span class="line">            m_val = &quot;&quot;</span><br><span class="line">        </span><br><span class="line">        # 输出当前步骤信息</span><br><span class="line">        print(f&quot;&#123;n&#125;\t&#123;sequence[n]&#125;\t&#123;d&#125;\t&#123;f_str:&lt;15&#125;\t&#123;L&#125;\t&#123;m_val&#125;\t&#123;update_type&#125;&quot;)</span><br><span class="line">        </span><br><span class="line">        # 更新变量</span><br><span class="line">        f = f_next</span><br><span class="line">        L = L_next</span><br><span class="line">        n += 1</span><br><span class="line">    </span><br><span class="line">    # 输出最终结果</span><br><span class="line">    print(&quot;\nFinal Result:&quot;)</span><br><span class="line">    f_str = &quot;1&quot;</span><br><span class="line">    terms = []</span><br><span class="line">    for i in range(1, len(f)):</span><br><span class="line">        if f[i] == 1:</span><br><span class="line">            terms.append(f&quot;x^&#123;i&#125;&quot; if i &gt; 1 else &quot;x&quot;)</span><br><span class="line">    if terms:</span><br><span class="line">        f_str += &quot; + &quot; + &quot; + &quot;.join(terms)</span><br><span class="line">    print(f&quot;Generating Polynomial: f(x) = &#123;f_str&#125;&quot;)</span><br><span class="line">    print(f&quot;LFSR Length: L = &#123;L&#125;&quot;)</span><br><span class="line">    </span><br><span class="line">    # 返回多项式系数和长度</span><br><span class="line">    # 移除尾部多余的零</span><br><span class="line">    while len(f) &gt; 1 and f[-1] == 0:</span><br><span class="line">        f.pop()</span><br><span class="line">    return f, L</span><br></pre></td></tr></table></figure>
+<p>已知： LFSR输出序列 $a_0a_1a_2⋯$，任意一位都是前面若干位的线性反馈值。<br>开始不知道寄存器的阶数和结构常数， BM算法逐次试验联接多项式，将f(x)从小次数到大次数逐渐增加进行尝试<br>BM算法更像是一个贪心算法（在对问题求解时，总是做出在当前看来是最好的选择），通过不断增加数来修改线性递推式，每次调整当前递推式时，保证新的递推式满足当前数列的次数最低的递推式。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/08/%E5%BA%8F%E5%88%97%E5%AF%86%E7%A0%81%E5%AD%A6/" data-id="cmfajc26g0000hkf04j6dda9e" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/09/08/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/09/08/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%9A%E4%BB%8E%E8%89%BA%E6%9C%AF%E5%88%B0%E7%A7%91%E5%AD%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/09/08/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/09/08/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/09/08/%E5%BA%8F%E5%88%97%E5%AF%86%E7%A0%81%E5%AD%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/09/08/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%9A%E4%BB%8E%E8%89%BA%E6%9C%AF%E5%88%B0%E7%A7%91%E5%AD%A6/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/09/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
